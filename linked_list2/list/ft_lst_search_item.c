@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lst_search_item.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 11:26:19 by khalid            #+#    #+#             */
-/*   Updated: 2024/02/01 11:26:23 by khalid           ###   ########.fr       */
+/*   Created: 2024/02/01 11:27:12 by khalid            #+#    #+#             */
+/*   Updated: 2024/02/01 11:42:51 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	*ft_lst_searh_item(t_list *lst, void *ref, int (*cmp)())
 {
-	t_list	*new;
-	t_list	*head;
-
-	if (lst == NULL || f == NULL || del == NULL)
+	if (lst == NULL || cmp == NULL)
 		return (NULL);
-	head = ft_lstnew(f(lst->content));
-	if (head == NULL)
-	{
-		ft_lstdel_front(head, del);
-		return (NULL);
-	}
-	lst = lst->next;
 	while (lst != NULL)
 	{
-		new = ft_lstnew(f(lst->content));
-		if (new == NULL)
-		{
-			ft_lstclear(&head, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&head, new);
+		if (cmp(ref, lst->content) == 0)
+			return (lst->content);
 		lst = lst->next;
 	}
-	return (head);
+	return (NULL);
 }

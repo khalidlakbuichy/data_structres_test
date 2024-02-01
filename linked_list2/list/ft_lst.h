@@ -6,7 +6,7 @@
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:18:28 by klakbuic          #+#    #+#             */
-/*   Updated: 2024/02/01 11:31:36 by khalid           ###   ########.fr       */
+/*   Updated: 2024/02/01 11:40:47 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ void				ft_lstadd_front(t_list **lst, t_list *new);
 void				ft_lstdel_front(t_list **lst, void (*del)(void *));
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstdel_back(t_list **lst, void (*del)(void *));
+void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				*ft_lst_searh_item(t_list *lst, void *ref, int (*cmp)());
+size_t				ft_lstsize(t_list *lst);
+void				ft_lstiter(t_list *lst, void (*f)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
+void				*ft_lst_searh_item(t_list *lst, void *ref, int (*cmp)());
+void				ft_lst_print(t_list *lst, void (*ft_print)(void *));
 
 #endif

@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_search_item.c                               :+:      :+:    :+:   */
+/*   ft_stack_top.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 11:27:12 by khalid            #+#    #+#             */
-/*   Updated: 2024/02/01 11:31:42 by khalid           ###   ########.fr       */
+/*   Created: 2024/02/01 09:13:08 by khalid            #+#    #+#             */
+/*   Updated: 2024/02/01 11:51:37 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_stack.h"
 
-void	*ft_lst_searh_item(t_list *lst, void *ref, int (*cmp)())
+void	*ft_stack_top(t_stack *stack)
 {
-	if (lst == NULL || cmp == NULL)
-		return ;
-	while (lst != NULL)
-	{
-		if (cmp(data_ref, lst->content) == 0)
-			return (lst->content);
-		lst = lst->next;
-	}
-	return (NULL);
+	if (stack == NULL || ft_satck_is_empy(stack))
+		return (NULL);
+	return (stack->top->data);
 }
