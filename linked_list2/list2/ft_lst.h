@@ -6,7 +6,7 @@
 /*   By: klakbuic <klakbuic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:18:28 by klakbuic          #+#    #+#             */
-/*   Updated: 2024/02/02 15:32:49 by klakbuic         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:19:49 by klakbuic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
+	struct s_list	*prev;
 }					t_list;
 
 t_list				*ft_lstnew(void *content);
