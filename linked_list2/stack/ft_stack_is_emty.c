@@ -6,15 +6,15 @@
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:16:14 by khalid            #+#    #+#             */
-/*   Updated: 2024/02/01 11:52:11 by khalid           ###   ########.fr       */
+/*   Updated: 2024/02/04 12:11:41 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-int	ft_satck_is_empy(t_stack *stack)
+bool	ft_satck_is_empy(t_stack *stack)
 {
 	if (stack == NULL)
-		return (0);
+		return (false);
 	return (stack->size == 0);
 }
