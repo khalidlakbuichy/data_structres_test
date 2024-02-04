@@ -6,7 +6,7 @@
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:49:38 by klakbuic          #+#    #+#             */
-/*   Updated: 2024/02/04 10:30:14 by khalid           ###   ########.fr       */
+/*   Updated: 2024/02/04 11:12:16 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst = NULL)
+	if (lst == NULL)
 		return (NULL);
 	while (lst->next != NULL)
 		lst = lst->next;

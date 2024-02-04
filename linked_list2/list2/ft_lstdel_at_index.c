@@ -6,7 +6,7 @@
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:34:51 by khalid            #+#    #+#             */
-/*   Updated: 2024/02/04 10:45:36 by khalid           ###   ########.fr       */
+/*   Updated: 2024/02/04 11:09:59 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	ft_lstdel_at_index(t_list **lst, unsigned int index, void (*del)(void *))
 			head->prev->next = head->next;
 			if (head->next != NULL)
 				head->next->prev = head->prev;
-			del(del->content);
+			del(head->content);
 			free(head);
 			return (true);
 		}

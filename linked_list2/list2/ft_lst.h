@@ -6,7 +6,7 @@
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:18:28 by klakbuic          #+#    #+#             */
-/*   Updated: 2024/02/04 10:48:38 by khalid           ###   ########.fr       */
+/*   Updated: 2024/02/04 11:06:23 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_list
 t_list				*ft_lstnew(void *content);
 bool				ft_lstadd_front(t_list **lst, t_list *new);
 bool				ft_lstdel_front(t_list **lst, void (*del)(void *));
-// t_list				*ft_lstlast(t_list *lst);
 bool				ft_lstadd_back(t_list **lst, t_list *new);
 bool				ft_lstdel_back(t_list **lst, void (*del)(void *));
 bool				ft_lstclear(t_list **lst, void (*del)(void *));
