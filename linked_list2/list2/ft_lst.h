@@ -6,7 +6,7 @@
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:18:28 by klakbuic          #+#    #+#             */
-/*   Updated: 2024/02/04 10:29:06 by khalid           ###   ########.fr       */
+/*   Updated: 2024/02/04 10:48:38 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ size_t				ft_lstsize(t_list *lst);
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-void				*ft_lst_searh_item(t_list *lst, void *ref, int (*cmp)());
+bool	ft_lstdel_at_index(t_list **lst, unsigned int index, void (*del)(void *));
+bool	ft_lstadd_at_index(t_list **lst, t_list *new, unsigned int index);
 
 #endif
