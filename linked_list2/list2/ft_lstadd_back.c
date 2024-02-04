@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klakbuic <klakbuic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:49:38 by klakbuic          #+#    #+#             */
-/*   Updated: 2024/02/02 15:55:28 by klakbuic         ###   ########.fr       */
+/*   Updated: 2024/02/04 10:30:14 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,20 @@ static t_list	*ft_lstlast(t_list *lst)
 		lst = lst->next;
 	return (lst);
 }
-void	ft_lstadd_back(t_list **lst, t_list *new)
+
+bool	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list *last;
 
-	if (lst == NULL || new == NULL)
-		return ;
+	if (new == NULL || lst == NULL)
+		return (false);
 	if (*lst == NULL)
-		*lst = new;
-	else
 	{
-		last = ft_lstlast(*lst);
-		last->next = new;
-		new->prev = last;
+		*lst = new;
+		return (true);
 	}
+	last = ft_lstlast(*lst);
+	last->next = new;
+	new->prev = last;
+	return (true);
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsearch_item.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 15:33:29 by klakbuic          #+#    #+#             */
-/*   Updated: 2024/02/04 09:48:40 by khalid           ###   ########.fr       */
+/*   Created: 2024/02/04 10:00:54 by khalid            #+#    #+#             */
+/*   Updated: 2024/02/04 10:01:49 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
 
-t_list	*ft_lstnew(void *content)
+void	*ft_lstsearh_item(t_list *lst, void *ref, int (*cmp)())
 {
-	t_list *newnode;
-
-	newnode = (t_list *)malloc(sizeof(t_list));
-	if (newnode == NULL)
+	if (lst == NULL || cmp == NULL)
 		return (NULL);
-	newnode->content = content;
-	newnode->prev = NULL;
-	newnode->next = NULL;
-	return (newnode);
+	while (lst != NULL)
+	{
+		if (cmp(ref, lst->content) == 0)
+			return (lst->content);
+		lst = lst->next;
+	}
+	return (NULL);
 }

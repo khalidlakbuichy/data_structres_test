@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 15:33:29 by klakbuic          #+#    #+#             */
-/*   Updated: 2024/02/04 09:48:40 by khalid           ###   ########.fr       */
+/*   Created: 2024/02/04 09:54:02 by khalid            #+#    #+#             */
+/*   Updated: 2024/02/04 10:31:06 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
 
-t_list	*ft_lstnew(void *content)
+bool	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *newnode;
+	t_list	*curr;
+	t_list	*head;
 
-	newnode = (t_list *)malloc(sizeof(t_list));
-	if (newnode == NULL)
-		return (NULL);
-	newnode->content = content;
-	newnode->prev = NULL;
-	newnode->next = NULL;
-	return (newnode);
+	if (del == NULL || lst == NULL || *lst == NULL)
+		return (false);
+	head = *lst;
+	curr = head;
+	while (head != NULL)
+	{
+		head = head->next;
+		del(curr->content);
+		curr->next = NULL;
+		curr->prev = NULL;
+		free(curr);
+		curr = head;
+	}
+	*lst = NULL;
+	return (true);
 }

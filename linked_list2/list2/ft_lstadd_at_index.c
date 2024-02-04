@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_at_index.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 15:33:29 by klakbuic          #+#    #+#             */
-/*   Updated: 2024/02/04 09:48:40 by khalid           ###   ########.fr       */
+/*   Created: 2024/02/04 10:03:28 by khalid            #+#    #+#             */
+/*   Updated: 2024/02/04 10:25:53 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_lst.h"
 
-t_list	*ft_lstnew(void *content)
+bool	ft_lstadd_at_index(t_list **lst, t_list *new, unsigned int index)
 {
-	t_list *newnode;
+	t_list	*head;
+	int		i;
 
-	newnode = (t_list *)malloc(sizeof(t_list));
-	if (newnode == NULL)
-		return (NULL);
-	newnode->content = content;
-	newnode->prev = NULL;
-	newnode->next = NULL;
-	return (newnode);
+	if (lst == NULL || new == NULL)
+		return (false);
+	if (index == 0)
+		return(ft_lstadd_front(lst, new));
+	i = 0;
+	while (head != NULL)
+	{
+		if (i == index)
+		{
+			new->prev = head->prev;
+			new->next = head;
+			head->prev = new;
+			head->prev->next = new;
+			return (true);
+		}
+		head = head->next;
+		i++;
+	}
+	return (false);
 }
